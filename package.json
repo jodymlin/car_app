@@ -19,8 +19,12 @@
     "react-mobile-picker-scroll": "^0.2.14",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-maps": "^0.23.0",
+    "react-native-picker-scrollview": "^1.0.0",
+    "react-native-wheel-scroll-picker": "^0.2.4",
     "react-navigation": "^3.0.9",
+    "react-scrollable-picker": "^1.0.2",
     "react-time": "^4.3.0",
+    "styled-components": "^4.2.0",
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {

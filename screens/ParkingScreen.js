@@ -4,6 +4,9 @@ import { createStackNavigator } from 'react-navigation';
 import MapContainer from '../components/MapContainer';
 import ParkingNotes from '../components/ParkingNotes';
 import ParkingTimer from '../components/ParkingTimer';
+import HourPicker from '../components/HourPicker';
+import MinutesPicker from '../components/MinutesPicker';
+import ScrollPicker from 'react-native-wheel-scroll-picker';
 
 class ParkingDetails extends React.Component {
   static navigationOptions = {
@@ -13,21 +16,33 @@ class ParkingDetails extends React.Component {
       backgroundColor: '#000000',
     },
     headerTitleStyle: {
-      fontSize: 30,
       fontFamily: 'bebas-neue',
     },
   };
 
   render() {
+    let hpicker = React.createElement(HourPicker);
+    let mpicker = React.createElement(MinutesPicker);
+
     return (
       <View style={styles.container}>
         <ParkingNotes />
-          <View style={styles.myButton}>
-            <TouchableNativeFeedback
-              onPress={() => this.props.navigation.navigate("DisplayParking")} >
-              <Text style={styles.buttonText}>Press to Park</Text>
-            </TouchableNativeFeedback>
+        <View style={styles.myPickers}>
+          <View style={{width: 100, backgroundColor: '#A0A0A0', marginBottom: 0, height: 100}}>
+            {hpicker}
           </View>
+          <View style={{width: 100, backgroundColor: '#A0A0A0', marginBottom: 0, height: 100}}>
+            {mpicker}
+          </View>
+        </View>
+        <Text style={styles.pickerText}>Hours                                                Minutes</Text>
+
+        <View style={styles.myButton}>
+          <TouchableNativeFeedback
+            onPress={() => this.props.navigation.navigate("DisplayParking", {hours: '2', minutes: '30'})} >
+            <Text style={styles.buttonText}>Press to Park</Text>
+          </TouchableNativeFeedback>
+        </View>
       </View>
     );
   }
@@ -40,14 +55,14 @@ class DisplayParking extends React.Component {
     headerStyle: {
       backgroundColor: '#000000'
     },
-    headerTitleStyle: {
-      fontSize: 30,
-    },
   };
 
   constructor(props) {
     super(props);
-    this.state = {note:""}
+    console.log(props.hours)
+    console.log(props.minutes)
+
+    this.state = {note:"", hours: props.hours, minutes: props.minutes}
   }
 
   componentDidUpdate( prevProps ) {
@@ -59,15 +74,12 @@ class DisplayParking extends React.Component {
   }
 
   render() {
-    let h = 2
-    let m = 1
-    props = { hours: "2", minutes: "1"};
+    props = { hours: '2', minutes: '30'};
     let timer = React.createElement(ParkingTimer, props);
     return (
       <View style={styles.container}>
         <MapContainer/>
         {timer}
-        <Text>PARKING TEXT HERE</Text>
       </View>
     );
   }
@@ -95,6 +107,18 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto',
     marginBottom: 30,
+  },
+  myPickers: {
+    marginBottom: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  pickerText: {
+    fontSize: 20,
+    fontFamily: 'bebas-neue',
+    textAlign: 'center',
+    color: '#ffffff',
+    flex: 1,
   },
   buttonText: {
     fontSize: 30,
