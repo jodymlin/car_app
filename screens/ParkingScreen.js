@@ -5,19 +5,26 @@ import MapContainer from '../components/MapContainer';
 import ParkingNotes from '../components/ParkingNotes';
 import ParkingTimer from '../components/ParkingTimer';
 
-class ParkingScreen extends React.Component {
+class ParkingDetails extends React.Component {
   static navigationOptions = {
     title: 'Parking',
+    headerTintColor: '#badfff',
+    headerStyle: {
+      backgroundColor: '#000000'
+    },
+    headerTitleStyle: {
+      fontSize: 30,
+    },
   };
 
   render() {
     return (
       <View style={styles.container}>
         <ParkingNotes/>
-        <Text>HI PEEPS</Text>
+
         <Button
           onPress={() => this.props.navigation.navigate("DisplayParking")}
-          title="Go To Details"
+          title="Park"
         />
       </View>
     );
@@ -27,21 +34,35 @@ class ParkingScreen extends React.Component {
 class DisplayParking extends React.Component {
   static navigationOptions = {
     title: 'Parking',
+    headerTintColor: '#badfff',
+    headerStyle: {
+      backgroundColor: '#000000'
+    },
+    headerTitleStyle: {
+      fontSize: 30,
+    },
   };
-
   render() {
+    let h = 2
+    let m = 1
+    props = { hours: "2", minutes: "1"};
+    let timer = React.createElement(ParkingTimer, props);
     return (
       <View style={styles.container}>
         <MapContainer/>
-        <ParkingTimer/>
+        {timer}
       </View>
     );
   }
 }
 
 export default createStackNavigator({
-    ParkingScreen,
-    DisplayParking
+  ParkingDetails: {
+    screen: ParkingDetails,
+  },
+  DisplayParking: {
+    screen: DisplayParking,
+  },
 });
 
 const styles = StyleSheet.create({

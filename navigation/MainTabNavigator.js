@@ -26,7 +26,8 @@ MyCarStack.navigationOptions = {
 };
 
 const ParkingStack = createStackNavigator({
-  Parking: ParkingScreen,
+  Parking: ParkingScreen}, 
+  { headerMode: 'none'
 });
 
 ParkingStack.navigationOptions = {
