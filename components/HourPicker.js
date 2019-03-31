@@ -38,7 +38,7 @@ export default class HourPicker extends Component {
                       //
                   }}
                   onValueChange={(data, selectedIndex) => {
-                      //
+                      this.props.onValueChange(data, selectedIndex);
                   }}
                   wrapperHeight={100}
                   wrapperWidth={70}

@@ -20,26 +20,48 @@ class ParkingDetails extends React.Component {
     },
   };
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      hours: 0,
+      minutes: 0
+    }
+  }
+
+  changeHours = (value) => {
+    console.log(value)
+    this.state.hours = value
+  }
+
+  changeMinutes = (value) => {
+    console.log(value)
+    this.state.minutes=value
+  }
+
   render() {
-    let hpicker = React.createElement(HourPicker);
-    let mpicker = React.createElement(MinutesPicker);
+    // let hpicker = React.createElement(HourPicker, { onValueChange: {e => { this.myFunction(e) }}});
+    // let mpicker = React.createElement(MinutesPicker);
 
     return (
       <View style={styles.container}>
         <ParkingNotes />
         <View style={styles.myPickers}>
           <View style={{width: 100, backgroundColor: '#A0A0A0', marginBottom: 0, height: 100}}>
-            {hpicker}
+            <HourPicker 
+              onValueChange={(e) => { this.changeHours(e) }} 
+            />
           </View>
           <View style={{width: 100, backgroundColor: '#A0A0A0', marginBottom: 0, height: 100}}>
-            {mpicker}
+            <MinutesPicker 
+              onValueChange={(e) => { this.changeMinutes(e) }} 
+            />
           </View>
         </View>
         <Text style={styles.pickerText}>Hours                                                Minutes</Text>
 
         <View style={styles.myButton}>
           <TouchableNativeFeedback
-            onPress={() => this.props.navigation.navigate("DisplayParking", { hours: '1', minutes: '30' })} >
+            onPress={() => this.props.navigation.navigate("DisplayParking", { hours: this.state.hours, minutes: this.state.minutes })} >
             <Text style={styles.buttonText}>Press to Park</Text>
           </TouchableNativeFeedback>
         </View>

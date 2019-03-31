@@ -67,24 +67,14 @@ export default class HourPicker extends Component {
                        '57',
                        '58',
                        '59',
-                       '50',
-                       '51',
-                       '52',
-                       '53',
-                       '54',
-                       '55',
-                       '56',
-                       '57',
-                       '58',
-                       '59',
-                       '50',
+                       '60',
                   ]}
                   selectedIndex={0}
                   renderItem={(data, index, isSelected) => {
                       //
                   }}
                   onValueChange={(data, selectedIndex) => {
-                      //
+                      this.props.onValueChange(data, selectedIndex);
                   }}
                   wrapperHeight={100}
                   wrapperWidth={70}
