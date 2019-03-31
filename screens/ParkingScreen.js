@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ScrollView, StyleSheet, View, Text } from 'react-native';
+import { Button, ScrollView, StyleSheet, View, Text, TouchableNativeFeedback } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import MapContainer from '../components/MapContainer';
 import ParkingNotes from '../components/ParkingNotes';
@@ -10,22 +10,24 @@ class ParkingDetails extends React.Component {
     title: 'Parking',
     headerTintColor: '#badfff',
     headerStyle: {
-      backgroundColor: '#000000'
+      backgroundColor: '#000000',
     },
     headerTitleStyle: {
       fontSize: 30,
+      fontFamily: 'bebas-neue',
     },
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <ParkingNotes/>
-
-        <Button
-          onPress={() => this.props.navigation.navigate("DisplayParking")}
-          title="Park"
-        />
+        <ParkingNotes />
+          <View style={styles.myButton}>
+            <TouchableNativeFeedback
+              onPress={() => this.props.navigation.navigate("DisplayParking")} >
+              <Text style={styles.buttonText}>Press to Park</Text>
+            </TouchableNativeFeedback>
+          </View>
       </View>
     );
   }
@@ -33,7 +35,7 @@ class ParkingDetails extends React.Component {
 
 class DisplayParking extends React.Component {
   static navigationOptions = {
-    title: 'Parking',
+    title: 'Car Location',
     headerTintColor: '#badfff',
     headerStyle: {
       backgroundColor: '#000000'
@@ -42,6 +44,20 @@ class DisplayParking extends React.Component {
       fontSize: 30,
     },
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {note:""}
+  }
+
+  componentDidUpdate( prevProps ) {
+    if ( this.state.note != prevProps.state.note ) {
+      console.log("there was a change!")
+      // CHANGE THE TEXT DISPLAY HERE???
+    }
+
+  }
+
   render() {
     let h = 2
     let m = 1
@@ -51,6 +67,7 @@ class DisplayParking extends React.Component {
       <View style={styles.container}>
         <MapContainer/>
         {timer}
+        <Text>PARKING TEXT HERE</Text>
       </View>
     );
   }
@@ -67,8 +84,23 @@ export default createStackNavigator({
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
     flex: 1,
     paddingTop: 0,
-    backgroundColor: '#606060',
+    backgroundColor: '#303742', //original:'#16489a',
+  },
+  myButton: {
+    width: 300,
+    backgroundColor: 'rgba(69, 149, 234, 1)',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginBottom: 30,
+  },
+  buttonText: {
+    fontSize: 30,
+    fontFamily: 'bebas-neue',
+    textAlign: 'center',
+    color: '#ffffff',
+    lineHeight: 100,
   },
 });

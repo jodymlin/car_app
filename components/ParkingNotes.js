@@ -1,12 +1,12 @@
 import React from 'react';
 import { AppRegistry, StyleSheet, Text, TextInput, KeyboardAvoidingView } from 'react-native';
 
-const noteInstructions = "Enter Parking Notes \n\t\tex: Level 2 North";
+const noteInstructions = "Tap to Add Parking Notes";
 
 export default class ParkingNotes extends React.Component {
   constructor(props) {
-  super(props);
-  this.state = {text: ''};
+    super(props);
+    this.state = {text: ''};
   }
 
   render() {
@@ -26,12 +26,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 0,
-    backgroundColor: '#606060',
+    backgroundColor: '#303742',//'#16489a',
   },
   inputText: {
-    fontSize: 20,
-    color: 'rgba(255, 255, 255, 1)',
+    paddingTop: 50,
+    fontSize: 25,
+    color: '#ffffff',
     textAlign: 'center',
+    fontFamily: 'bebas-neue',
     //height: 100,
   }
 });

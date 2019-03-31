@@ -18,8 +18,8 @@ MyCarStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? 'ios-stats'
+          : 'md-stats'
       }
     />
   ),
@@ -35,7 +35,7 @@ ParkingStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+      name={Platform.OS === 'ios' ? 'ios-car' : 'md-car'}
     />
   ),
 };
@@ -49,7 +49,7 @@ MaintenanceStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+      name={Platform.OS === 'ios' ? 'ios-hammer' : 'md-hammer'}
     />
   ),
 };
@@ -58,4 +58,10 @@ export default createBottomTabNavigator({
   MyCarStack,
   ParkingStack,
   MaintenanceStack,
-});
+},{
+    tabBarOptions: {
+      style: {
+        backgroundColor: '#000000', 
+      }
+    }
+  });
