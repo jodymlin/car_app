@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: 'rgba(96,100,109, 1)',
     textAlign: 'center',
-    fontFamily: 'bebas-neue',
+    //fontFamily: 'bebas-neue',
   },
   navigationFilename: {
     marginTop: 5,

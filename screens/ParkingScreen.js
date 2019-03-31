@@ -13,7 +13,6 @@ class ParkingDetails extends React.Component {
       backgroundColor: '#000000',
     },
     headerTitleStyle: {
-      fontSize: 30,
       fontFamily: 'bebas-neue',
     },
   };
@@ -40,9 +39,6 @@ class DisplayParking extends React.Component {
     headerStyle: {
       backgroundColor: '#000000'
     },
-    headerTitleStyle: {
-      fontSize: 30,
-    },
   };
 
   constructor(props) {
@@ -67,7 +63,6 @@ class DisplayParking extends React.Component {
       <View style={styles.container}>
         <MapContainer/>
         {timer}
-        <Text>PARKING TEXT HERE</Text>
       </View>
     );
   }
@@ -97,8 +92,8 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   buttonText: {
-    fontSize: 30,
     fontFamily: 'bebas-neue',
+    fontSize: 30,
     textAlign: 'center',
     color: '#ffffff',
     lineHeight: 100,
