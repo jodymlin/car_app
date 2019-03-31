@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ScrollPicker from 'react-native-wheel-scroll-picker';
 
 export default class HourPicker extends Component {
- 
+
     render() {
         return(
              <ScrollPicker

@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontFamily: 'bebas-neue',
     color: 'rgba(255,255,255, 1)',
-    lineHeight: 65,
+    lineHeight: 90,
     textAlign: 'center',
   },
   displayText: {

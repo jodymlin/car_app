@@ -39,7 +39,7 @@ class ParkingDetails extends React.Component {
 
         <View style={styles.myButton}>
           <TouchableNativeFeedback
-            onPress={() => this.props.navigation.navigate("DisplayParking", {hours: '2', minutes: '30'})} >
+            onPress={() => this.props.navigation.navigate("DisplayParking", { hours: '1', minutes: '30' })} >
             <Text style={styles.buttonText}>Press to Park</Text>
           </TouchableNativeFeedback>
         </View>
@@ -59,10 +59,9 @@ class DisplayParking extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(props.hours)
-    console.log(props.minutes)
+    const { params } = this.props.navigation.state;
 
-    this.state = {note:"", hours: props.hours, minutes: props.minutes}
+    this.state = {note:"", hours: params.hours, minutes: params.minutes}
   }
 
   componentDidUpdate( prevProps ) {
@@ -74,7 +73,8 @@ class DisplayParking extends React.Component {
   }
 
   render() {
-    props = { hours: '2', minutes: '30'};
+
+    props = { hours: this.state.hours, minutes: this.state.minutes};
     let timer = React.createElement(ParkingTimer, props);
     return (
       <View style={styles.container}>

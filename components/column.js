@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontFamily: 'bebas-neue',
     color: '#ffffff',
-    lineHeight: 60,
+    lineHeight: 90,
     textAlign: 'center',
   },
   displayText: {
