@@ -121,8 +121,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonText: {
-    fontSize: 30,
     fontFamily: 'bebas-neue',
+    fontSize: 30,
     textAlign: 'center',
     color: '#ffffff',
     lineHeight: 100,
